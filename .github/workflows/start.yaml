@@ -1,0 +1,22 @@
+name: CLASS git-action JOBS
+
+on: push
+
+jobs:
+  job01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing current date
+        run: date 
+  job02: 
+    runs-on: macos-latest
+    needs: [job01]
+    steps:
+      - name: print current date 
+        run: date 
+  job03:
+    runs-on: windows-latest
+    needs: [job01, job02]
+    steps:
+      - name: print current date 
+        run: date
